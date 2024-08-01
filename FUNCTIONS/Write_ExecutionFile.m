@@ -190,6 +190,11 @@ fprintf(ID_File,'[NOMBRE DEL ARCHIVO DE CICLOS ANUALES DE CARGAS DIFUSAS]\n');
 fprintf(ID_File,UserData.LoadCycle);
 fprintf(ID_File,'\n\n');
 
+%% Guardar Nombre del Archivo de condiciones de frontera
+fprintf(ID_File,'[NOMBRE DEL ARCHIVO DE CONDICIONES DE FRONTERA]\n');
+fprintf(ID_File,UserData.BoundaryC);
+fprintf(ID_File,'\n\n');
+
 %% Guardar tipo de ejecucion del modelo
 fprintf(ID_File,'[TIPO DE EJECUCIÓN DEL MODELO]\n');
 fprintf(ID_File,'%d',UserData.ExeType);
@@ -198,6 +203,11 @@ fprintf(ID_File,'\n\n');
 %% Guardar tipo de ejecucion del modelo
 fprintf(ID_File,'[EVALUAR MODELO GEOTÉCNICO]\n');
 fprintf(ID_File,'%d',UserData.GeoExeType);
+fprintf(ID_File,'\n\n');
+
+%% Guardar tipo de ejecucion del modelo pH
+fprintf(ID_File,'[EVALUAR pH CON CUENCA CALIENTE]\n');
+fprintf(ID_File,'%d',UserData.pHExeType);
 
 %% Cerrar Archivo
 fclose(ID_File);

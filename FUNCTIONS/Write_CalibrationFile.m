@@ -213,7 +213,13 @@ fprintf(ID_File,'\n');
 %% Guardar parámetro ICA-EPM.
 fprintf(ID_File,'[ESTADO DE LA CUENCA PARA LA EVALUACION DEL ICA-EPM]\n');
 fprintf(ID_File,'estado\n');
-fprintf(ID_File,'%.15g',UserData.ICA);
+fprintf(ID_File,'%.15g\n',UserData.ICA);
+fprintf(ID_File,'\n');
+
+%% Guardar factores de pH
+fprintf(ID_File,'[FACTORES PARA MODELO DE pH]\n');
+fprintf(ID_File,'pCO2 roc fc_alk\n');
+fprintf(ID_File,'%.15g %.15g %.15g\n',UserData.pH);
 
 %% Cerrar Archivo
 fclose(ID_File);

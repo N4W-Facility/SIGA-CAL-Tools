@@ -62,10 +62,10 @@ fprintf(ID_File,'[MATRIZ DE DATOS]\n');
 fprintf(ID_File,'Nombre X Y Q T SST NO3 NH4 NO CT EC alk pH OD CDBO5 CE PO PI\n');
 Name = UserData.Data(:,1);
 Data = cell2mat(UserData.Data(:,2:end));
-Data = [Data(:,1:11) repmat(UserData.NoValue,UserData.N,2) Data(:,12:end)];
+Data(isnan(Data))   = UserData.NoValue;
 for i = 1:UserData.N      
     fprintf(ID_File,'%s ',Name{i});
-    fprintf(ID_File,['%f',repmat(' %f',1,16)],Data(i,:));
+    fprintf(ID_File,['%f',repmat(' %f',1,18)],Data(i,:));
     fprintf(ID_File,'\n');
 end
 fprintf(ID_File,'\n');

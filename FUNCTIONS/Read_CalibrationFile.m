@@ -255,6 +255,13 @@ try
         elseif i == 22
             % Parámetros ICA-EPM
             UserData.ICA = logical(str2double(LineText));
+            
+        elseif i == 23
+            % Parámetros de pH
+            Tmp = strsplit(LineText,' ');
+            Tmp = cellfun(@str2num,Tmp);
+            Tmp(Tmp == NoValue) = NaN;
+            UserData.pH = Tmp;
             % Close File 
             fclose(ID_File);
             break
