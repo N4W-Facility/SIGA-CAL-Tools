@@ -1,5 +1,5 @@
-function Write_DumpingFile(FilePath, UserData)
-% Función para escritura de archivo de vertimientos - SIGA-CAL 2022
+function Write_BoundaryFile(FilePath, UserData)
+% Función para escritura de archivo de condiciones de frontera- SIGA-CAL 2022
 % -------------------------------------------------------------------------
 % Matlab Version > R2019b 
 % -------------------------------------------------------------------------
@@ -57,15 +57,20 @@ fprintf(ID_File,'[VALOR DE DATOS FALTANTES]\n');
 fprintf(ID_File,'%d\n',UserData.NoValue);
 fprintf(ID_File,'\n');
 
+%% Listado de varibles para puntos de control
+fprintf(ID_File,'[TIPO CONDICIONES DE FRONTERA]\n');
+fprintf(ID_File,'%d\n',1);
+fprintf(ID_File,'\n');
+
 %% Listado de puntos de control
 fprintf(ID_File,'[MATRIZ DE DATOS]\n');
-fprintf(ID_File,'Nombre X Y Q T SST NO3 NH4 NO CT EC alk pH OD CDBO5 CE PO PI\n');
+fprintf(ID_File,'Nombre X Y T SST NO3 NH4 NO CT EC alk pH OD CDBO5 CE PO PI\n');
 Name = UserData.Data(:,1);
 Data = cell2mat(UserData.Data(:,2:end));
 Data(isnan(Data))   = UserData.NoValue;
 for i = 1:UserData.N      
     fprintf(ID_File,'%s ',Name{i});
-    fprintf(ID_File,['%f',repmat(' %f',1,18)],Data(i,:));
+    fprintf(ID_File,['%f',repmat(' %f',1,17)],Data(i,:));
     fprintf(ID_File,'\n');
 end
 fprintf(ID_File,'\n');

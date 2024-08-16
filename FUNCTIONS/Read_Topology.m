@@ -90,7 +90,7 @@ try
             % Tipo de topología
             UserData.TypeTopo    = LineText;
         elseif i == 4
-            Data            = textscan(ID_File,['%f',repmat(' %f',1,99)]);
+            Data            = textscan(ID_File,['%f',repmat(' %f',1,102)]);
             Data            = cell2mat(Data);
             Data(Data == -9999) = NaN;
             % Coordenadas Este

@@ -167,11 +167,18 @@ try
             % Nombre del archivo de ciclos de cargas difusas
             UserData.LoadCycle  = LineText;
         elseif i == 24
+            % Nombre del archivo de condiciones de frontera
+            UserData.BoundaryC  = LineText;
+        elseif i == 25
             % Tipo de ejecución del modelo
             UserData.ExeType    = str2double(LineText);
-        elseif i == 25
+        elseif i == 26
             % Evaluar modelo geotécnico
             UserData.GeoExeType = logical(str2double(LineText));
+            % Close File 
+        elseif i == 27
+            % Evaluar modelo geotécnico
+            UserData.pHExeType  = logical(str2double(LineText));
             % Close File 
             fclose(ID_File);
             break
